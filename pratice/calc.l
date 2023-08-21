@@ -1,0 +1,14 @@
+%option noyywrap
+
+%{
+    #include "y.tab.h"
+    int yylval=0;
+%}
+
+%%
+[0-9]+ {yylval=atoi(yytext);
+            return NUM;}
+[\n] return 0;
+[\t] ;
+. return yytext[0];
+%%
